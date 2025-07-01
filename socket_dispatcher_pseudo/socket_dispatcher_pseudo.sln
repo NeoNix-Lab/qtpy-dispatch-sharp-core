@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35122.118
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "socket_dispatcher_pseudo", "socket_dispatcher_pseudo.csproj", "{58423B77-4E21-435E-A238-B0BE3E7870A1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SocketDispatcherPseudo.Tests", "..\SocketDispatcherPseudo.Tests\SocketDispatcherPseudo.Tests.csproj", "{22582769-6923-46F3-9E38-67F51E98BA93}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{58423B77-4E21-435E-A238-B0BE3E7870A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58423B77-4E21-435E-A238-B0BE3E7870A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58423B77-4E21-435E-A238-B0BE3E7870A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58423B77-4E21-435E-A238-B0BE3E7870A1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{22582769-6923-46F3-9E38-67F51E98BA93}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22582769-6923-46F3-9E38-67F51E98BA93}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22582769-6923-46F3-9E38-67F51E98BA93}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{22582769-6923-46F3-9E38-67F51E98BA93}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {538FC475-BD5C-4271-A99D-474B95FEF980}
+	EndGlobalSection
+EndGlobal

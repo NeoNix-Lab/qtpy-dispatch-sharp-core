@@ -19,9 +19,9 @@ namespace socket_dispatcher_pseudo
 
             // Set up dispatcher and register handlers
             var dispatcher = new MessageDispatcher();
-            dispatcher.Register("NewOrder", TradingEnvelopes.NewOrder.OnReceived);
-            dispatcher.Register("PriceUpdate", TradingEnvelopes.PriceUpdate.OnReceived);
-            dispatcher.Register("AccountBalance", TradingEnvelopes.AccountBalance.OnReceived);
+            dispatcher.Register(TradingEnvelopes.NewOrder);
+            dispatcher.Register(TradingEnvelopes.PriceUpdate);
+            dispatcher.Register(TradingEnvelopes.AccountBalance);
 
             // Example: send a NewOrder envelope to the server
             await manager.SendAsync(TradingEnvelopes.NewOrder.ToJson());

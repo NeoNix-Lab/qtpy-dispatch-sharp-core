@@ -16,12 +16,13 @@ namespace socket_dispatcher_pseudo
         /// <summary>
         /// Registers a callback for a given message name.
         /// </summary>
-        /// <param name="messageName">The logical name of the message type.</param>
-        /// <param name="onReceived">The action to invoke when that message is received.</param>
-        public void Register(string messageName, Action<IMessage> onReceived)
+        public void Register(IMessageEnvelope messagEnveloped)
         {
-            var env = MessageEnvelope.Create(messageName, new Dictionary<string, object>(), onReceived);
-            _envelopes[messageName] = env;
+            if (!_envelopes.ContainsKey(messagEnveloped.Name))
+                _envelopes[messagEnveloped.Name] = messagEnveloped;
+            else
+                throw new InvalidOperationException($"Envelope for message '{messagEnveloped.Name}' is already registered.");
+
         }
 
         /// <summary>

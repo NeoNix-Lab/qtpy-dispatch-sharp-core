@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.Json;
-using System.Threading.Tasks;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace socket_dispatcher_pseudo
 {
@@ -45,29 +41,42 @@ namespace socket_dispatcher_pseudo
         /// <returns>A new <see cref="MessageEnvelope"/> without an assigned callback.</returns>
         public static MessageEnvelope FromJson(string json)
         {
-            var dto = JsonSerializer.Deserialize<MessageEnvelopeDto>(json);
+            // Deserializza nel DTO che usa JsonExtensionData per catturare tutti i campi extra
+            var dto = JsonConvert.DeserializeObject<MessageEnvelopeDto>(json)!;
+
+            // Converte JObject Data in Dictionary<string, object>
+            var dataDict = dto.Data.ToObject<Dictionary<string, object>>()!;
+
             return new MessageEnvelope
             {
                 Name = dto.Name,
-                Message = new DynamicMessage(dto.Name, dto.Data)
+                Message = new DynamicMessage(dto.Name, dataDict)
             };
         }
 
         /// <inheritdoc />
         public string ToJson()
         {
-            var dto = new MessageEnvelopeDto { Name = Name, Data = Message.Data };
-            return JsonSerializer.Serialize(dto);
+            var dto = new MessageEnvelopeDto
+            {
+                Name = Name,
+                Data = JObject.FromObject(Message.Data)
+            };
+            return JsonConvert.SerializeObject(dto);
         }
 
         /// <inheritdoc />
         public void Invoke() => OnReceived?.Invoke(Message);
 
         // Private DTO class used solely for JSON deserialization.
+        [JsonObject(MemberSerialization.OptIn)]
         private class MessageEnvelopeDto
         {
+            [JsonProperty("name", Required = Required.Always)]
             public string Name { get; set; }
-            public Dictionary<string, object> Data { get; set; }
+
+            [JsonExtensionData]
+            public JObject Data { get; set; } = default!;
         }
     }
 
