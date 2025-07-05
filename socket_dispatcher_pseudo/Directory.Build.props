@@ -1,0 +1,10 @@
+<Project>
+  <PropertyGroup>
+    <JsonSchemaFolder>Schemas</JsonSchemaFolder>
+    <EmitCompilerGeneratedFiles>true</EmitCompilerGeneratedFiles>
+    <CompilerGeneratedFilesOutputPath>$(BaseIntermediateOutputPath)Generated</CompilerGeneratedFilesOutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <AdditionalFiles Include="$(MSBuildProjectDirectory)\$(JsonSchemaFolder)\**\*.json" />
+  </ItemGroup>
+</Project>

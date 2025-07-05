@@ -7,6 +7,17 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "socket_dispatcher_pseudo", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SocketDispatcherPseudo.Tests", "..\SocketDispatcherPseudo.Tests\SocketDispatcherPseudo.Tests.csproj", "{22582769-6923-46F3-9E38-67F51E98BA93}"
 EndProject
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "socket_dispatcher_python", "..\socket_dispatcher_python\socket_dispatcher_python.pyproj", "{AC4D94FA-F3A1-4B1E-8331-4CAFA4183B6B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestCodeGenerator", "..\TestCodeGenerator\TestCodeGenerator.csproj", "{7180B73E-032C-4098-8C12-6479FCB60F17}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Generator", "..\Generator\Generator.csproj", "{4393741F-A45C-486D-8D72-D5BB98C4D2E9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{168DAFC2-91A8-47CA-BEC8-C395BB45F1BF}"
+	ProjectSection(SolutionItems) = preProject
+		Directory.Build.props = Directory.Build.props
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +32,16 @@ Global
 		{22582769-6923-46F3-9E38-67F51E98BA93}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{22582769-6923-46F3-9E38-67F51E98BA93}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{22582769-6923-46F3-9E38-67F51E98BA93}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AC4D94FA-F3A1-4B1E-8331-4CAFA4183B6B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC4D94FA-F3A1-4B1E-8331-4CAFA4183B6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7180B73E-032C-4098-8C12-6479FCB60F17}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7180B73E-032C-4098-8C12-6479FCB60F17}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7180B73E-032C-4098-8C12-6479FCB60F17}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7180B73E-032C-4098-8C12-6479FCB60F17}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4393741F-A45C-486D-8D72-D5BB98C4D2E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4393741F-A45C-486D-8D72-D5BB98C4D2E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4393741F-A45C-486D-8D72-D5BB98C4D2E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4393741F-A45C-486D-8D72-D5BB98C4D2E9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

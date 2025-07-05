@@ -1,0 +1,13 @@
+﻿<package>
+  <metadata>
+    <id>My.JsonSchema.Generator</id>
+    <version>1.0.0</version>
+    <authors>TuoNome</authors>
+    <description>Incremental Source Generator per JSON-Schema → C# POCO</description>
+    <!-- nessuna dependency qui, perché tutte le DLL vanno in analyzers/ -->
+  </metadata>
+  <files>
+    <!-- Copia solo le DLL del generator e le sue dipendenze in analyzers -->
+    <file src="analyzers\dotnet\cs\*.*" target="analyzers\dotnet\cs" />
+  </files>
+</package>

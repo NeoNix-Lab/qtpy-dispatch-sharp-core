@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <EnforceExtendedAnalyzerRules>true</EnforceExtendedAnalyzerRules>
+    <EmitCompilerGeneratedFiles>true</EmitCompilerGeneratedFiles>
+    <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Collections.Immutable"
+                      Version="9.0.0"
+                      PrivateAssets="all" />
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp"
+                      Version="4.10.0"
+                      PrivateAssets="all" />
+    <PackageReference Include="NJsonSchema"
+                      Version="11.3.2"
+                      PrivateAssets="all" />
+    <PackageReference Include="NJsonSchema.CodeGeneration.CSharp"
+                      Version="11.3.2"
+                      PrivateAssets="all" />
+  </ItemGroup>
+</Project>
