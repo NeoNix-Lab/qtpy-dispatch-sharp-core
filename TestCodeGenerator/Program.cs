@@ -15,6 +15,8 @@ namespace TestCodeGenerator
                 Console.Error.WriteLine($"Error: {ex.Message}");
                 Environment.Exit(1);
             }
+
+            
         }
         
         //public static async Task Run()

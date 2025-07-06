@@ -1,13 +1,17 @@
-﻿<package>
+﻿<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
     <id>My.JsonSchema.Generator</id>
-    <version>1.0.0</version>
-    <authors>TuoNome</authors>
-    <description>Incremental Source Generator per JSON-Schema → C# POCO</description>
-    <!-- nessuna dependency qui, perché tutte le DLL vanno in analyzers/ -->
+    <version>1.0.3</version>
+    <authors>Neo-Nix</authors>
+    <description>Source-generator per JSON-Schema → code C#</description>
+    <developmentDependency>true</developmentDependency>
   </metadata>
   <files>
-    <!-- Copia solo le DLL del generator e le sue dipendenze in analyzers -->
-    <file src="analyzers\dotnet\cs\*.*" target="analyzers\dotnet\cs" />
+    <!-- Generatore e dipendenze -->
+    <file src="..\bin\Release\netstandard2.0\*.dll"
+        target="analyzers/dotnet/cs" />
+    <file src="..\bin\Release\netstandard2.0\*.deps.json"
+          target="analyzers/dotnet/cs" />
   </files>
 </package>
