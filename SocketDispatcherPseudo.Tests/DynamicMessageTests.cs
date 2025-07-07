@@ -10,7 +10,7 @@ namespace SocketDispatcherPseudo.Tests
             var data = new Dictionary<string, object> { ["Foo"] = 42 };
             var msg = new DynamicMessage("TestMessage", data);
 
-            Assert.Equal("TestMessage", msg.Name);
+            Assert.Equal("TestMessage", msg.Title);
             Assert.Same(data, msg.Data);
             Assert.True(msg.Data.ContainsKey("Foo"));
             Assert.Equal(42, msg.Data["Foo"]);

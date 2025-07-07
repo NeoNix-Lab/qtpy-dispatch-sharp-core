@@ -11,12 +11,12 @@ namespace socket_dispatcher_pseudo
     /// </summary>
     public class MessageDispatcher
     {
-        private readonly Dictionary<string, IMessageEnvelope> _envelopes = new();
+        private readonly Dictionary<string, IDispatchable> _envelopes = new();
 
         /// <summary>
         /// Registers a callback for a given message name.
         /// </summary>
-        public void Register(IMessageEnvelope messagEnveloped)
+        public void Register(IDispatchable messagEnveloped)
         {
             if (!_envelopes.ContainsKey(messagEnveloped.Name))
                 _envelopes[messagEnveloped.Name] = messagEnveloped;

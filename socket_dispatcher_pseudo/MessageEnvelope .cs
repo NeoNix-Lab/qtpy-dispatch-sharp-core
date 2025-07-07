@@ -1,12 +1,13 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using socket_dispatcher_pseudo.Interfaces;
 
 namespace socket_dispatcher_pseudo
 {
     /// <summary>
-    /// Concrete implementation of <see cref="IMessageEnvelope"/>, handling JSON deserialization.
+    /// Concrete implementation of <see cref="IDispatchable"/>, handling JSON deserialization.
     /// </summary>
-    public class MessageEnvelope : IMessageEnvelope
+    public class MessageEnvelope : IDispatchable
     {
         /// <inheritdoc />
         public string Name { get; private set; }
@@ -49,8 +50,8 @@ namespace socket_dispatcher_pseudo
 
             return new MessageEnvelope
             {
-                Name = dto.Name,
-                Message = new DynamicMessage(dto.Name, dataDict)
+                Name = dto.Title,
+                Message = new DynamicMessage(dto.Title, dataDict)
             };
         }
 
@@ -59,8 +60,8 @@ namespace socket_dispatcher_pseudo
         {
             var dto = new MessageEnvelopeDto
             {
-                Name = Name,
-                Data = JObject.FromObject(Message.Data)
+                Title = Name,
+                Data = JObject.FromObject(Message.Title)
             };
             return JsonConvert.SerializeObject(dto);
         }
@@ -73,7 +74,7 @@ namespace socket_dispatcher_pseudo
         private class MessageEnvelopeDto
         {
             [JsonProperty("name", Required = Required.Always)]
-            public string Name { get; set; }
+            public string Title { get; set; }
 
             [JsonExtensionData]
             public JObject Data { get; set; } = default!;

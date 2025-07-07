@@ -21,6 +21,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		..\README.md = ..\README.md
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NeoNix-QtPy-Sdk-Serialization", "..\NeoNix-QtPy-Sdk-Serialization\NeoNix-QtPy-Sdk-Serialization.csproj", "{66F48E48-C81E-4F4F-BAE4-C7D000D32CC5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{4393741F-A45C-486D-8D72-D5BB98C4D2E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4393741F-A45C-486D-8D72-D5BB98C4D2E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4393741F-A45C-486D-8D72-D5BB98C4D2E9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{66F48E48-C81E-4F4F-BAE4-C7D000D32CC5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66F48E48-C81E-4F4F-BAE4-C7D000D32CC5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66F48E48-C81E-4F4F-BAE4-C7D000D32CC5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66F48E48-C81E-4F4F-BAE4-C7D000D32CC5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

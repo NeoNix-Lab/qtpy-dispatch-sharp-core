@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json.Linq;
 using Newtonsoft.Json.Schema;
 using Newtonsoft.Json.Schema.Generation;
+using socket_dispatcher_pseudo.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,7 +29,7 @@ namespace socket_dispatcher_pseudo
             {
                 var txt = File.ReadAllText(file);
                 var schema = JSchema.Parse(txt);
-                // assume your schema has a Title or use filename
+                // assume your schema has a Name or use filename
                 var key = schema.Title ?? Path.GetFileNameWithoutExtension(file);
                 _schemas[key] = schema;
             }

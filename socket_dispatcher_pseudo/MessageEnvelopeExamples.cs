@@ -12,7 +12,7 @@ namespace socket_dispatcher_pseudo
     public static class TradingEnvelopes
     {
         // 1) New Order: sends a new buy/sell order
-        public static readonly IMessageEnvelope NewOrder = MessageEnvelope.Create(
+        public static readonly IDispatchable NewOrder = MessageEnvelope.Create(
             name: "NewOrder",
             data: new Dictionary<string, object>
             {
@@ -29,7 +29,7 @@ namespace socket_dispatcher_pseudo
         );
 
         // 2) Price Update: notifies of a market price update
-        public static readonly IMessageEnvelope PriceUpdate = MessageEnvelope.Create(
+        public static readonly IDispatchable PriceUpdate = MessageEnvelope.Create(
             name: "PriceUpdate",
             data: new Dictionary<string, object>
             {
@@ -45,7 +45,7 @@ namespace socket_dispatcher_pseudo
         );
 
         // 3) Account Balance: portfolio status after execution
-        public static readonly IMessageEnvelope AccountBalance = MessageEnvelope.Create(
+        public static readonly IDispatchable AccountBalance = MessageEnvelope.Create(
             name: "AccountBalance",
             data: new Dictionary<string, object>
             {

@@ -1,4 +1,6 @@
 ﻿
+using socket_dispatcher_pseudo.Interfaces;
+
 namespace socket_dispatcher_pseudo
 {
     /// <summary>
@@ -7,7 +9,7 @@ namespace socket_dispatcher_pseudo
     public class DynamicMessage : IMessage
     {
         /// <inheritdoc />
-        public string Name { get; }
+        public string Title { get; }
 
         /// <inheritdoc />
         public Dictionary<string, object> Data { get; }
@@ -19,7 +21,7 @@ namespace socket_dispatcher_pseudo
         /// <param name="data">A dictionary of message-specific data.</param>
         public DynamicMessage(string name, Dictionary<string, object> data)
         {
-            Name = name;
+            Title = name;
             Data = data;
         }
     }
