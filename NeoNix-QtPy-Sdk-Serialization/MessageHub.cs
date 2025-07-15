@@ -1,10 +1,9 @@
 ﻿using NeoNix_QtPy_Sdk_Serialization.Interfaces;
 using NeoNix_QtPy_Sdk_Serialization.Services;
-using System.Net.Sockets;
+using System.ComponentModel.DataAnnotations;
+using Microsoft.Build.Framework;
+using Microsoft.Build.Utilities;
 using System.Reflection;
-using System.Runtime.CompilerServices;
-using System.Threading.Tasks;
-using System.Xml.Serialization;
 
 namespace NeoNix_QtPy_Sdk_Serialization
 {
@@ -19,7 +18,7 @@ namespace NeoNix_QtPy_Sdk_Serialization
 
         private MessageHub() { }
 
-        public async Task Init(string host,
+        public async System.Threading.Tasks.Task Init(string host,
             int port,
             TimeSpan? timeout = null,
             CancellationToken cancellationToken = default)
@@ -29,7 +28,7 @@ namespace NeoNix_QtPy_Sdk_Serialization
             _ReadLoop();
         }
 
-        private async Task _ReadLoop()
+        private async System.Threading.Tasks.Task _ReadLoop()
         {
             while (true)
             {
@@ -40,7 +39,7 @@ namespace NeoNix_QtPy_Sdk_Serialization
             }
         }
 
-        public async Task SendAsync(IDispatchable message,
+        public async System.Threading.Tasks.Task SendAsync(IDispatchable message,
             TimeSpan? timeout = null,
             CancellationToken cancellationToken = default)
         {
@@ -50,7 +49,7 @@ namespace NeoNix_QtPy_Sdk_Serialization
             await _socketManager.SendAsync(Ime, timeout, cancellationToken);
         }
 
-        public async Task SendAsync(string message,
+        public async System.Threading.Tasks.Task SendAsync(string message,
             TimeSpan? timeout = null,
             CancellationToken cancellationToken = default)
         {
@@ -83,6 +82,22 @@ namespace NeoNix_QtPy_Sdk_Serialization
         }
         public static void ExportSchemas(string folder)
                => SchemaManager.ExportAll(folder, Assembly.GetExecutingAssembly());
+    }
+
+
+
+    public class QtPyTask : Microsoft.Build.Utilities.Task
+    {
+        [Microsoft.Build.Framework.Required]
+        public string Folder { get; set; }
+
+        public override bool Execute()
+        {
+            // qui chiami la tua funzione importata
+            MessageHub.ExportSchemas(Folder);
+            Log.LogMessage(MessageImportance.High, $"Eseguito DoWork su {Folder}");
+            return true;
+        }
     }
 
 }

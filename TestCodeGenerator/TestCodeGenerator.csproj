@@ -25,11 +25,8 @@
       - OutputItemType="Analyzer" → Roslyn lo carica nella pipeline di generazione
       - ReferenceOutputAssembly="false" → non lo includi tra le normali reference
     -->
-    <PackageReference
-        Include="My.JsonSchema.Generator"
-        Version="1.0.0"
-        OutputItemType="Analyzer"
-        ReferenceOutputAssembly="false" />
+    <PackageReference Include="My.JsonSchema.Generator" Version="1.0.0" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
+    <PackageReference Include="NeoNix-QtPy-Sdk-Serialization" Version="1.1.0" />
   </ItemGroup>
 
 </Project>

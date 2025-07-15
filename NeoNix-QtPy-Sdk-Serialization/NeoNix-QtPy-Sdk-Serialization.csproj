@@ -7,16 +7,18 @@
     <Nullable>enable</Nullable>
     <EnforceExtendedAnalyzerRules>true</EnforceExtendedAnalyzerRules>
     <EmitCompilerGeneratedFiles>true</EmitCompilerGeneratedFiles>
+    <Version>1.1.0</Version>
+
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="buildTransitive\NeoNix-QtPy-Sdk-Serialization.targets" Pack="true" PackagePath="buildTransitive" />
+    <None Include="build\NeoNix-QtPy-Sdk-Serialization.targets" Pack="true" PackagePath="build" />
+    <PackageReference Include="Microsoft.Build.Framework" Version="17.15.0-preview-25277-114" />
+    <PackageReference Include="Microsoft.Build.Utilities.Core" Version="17.15.0-preview-25277-114" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="Newtonsoft.Json.Schema" Version="4.0.2-beta2" />
     <PackageReference Include="NJsonSchema" Version="11.3.2" />
   </ItemGroup>
-
-  <Target Name="GenerateSchemas" BeforeTargets="BeforeBuild">
-    <Exec Command="dotnet run --project Services\SchemaExporter --path $(ProjectDir)shared_schemas" />
-  </Target>
-
 </Project>
+
