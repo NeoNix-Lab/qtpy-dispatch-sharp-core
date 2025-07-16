@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <Platforms>AnyCPU</Platforms>
+    <AlgoType>Indicator</AlgoType>
+    <AssemblyName>IndicatorExample</AssemblyName>
+    <RootNamespace>IndicatorExample</RootNamespace>
+    <Nullable>enable</Nullable>
+    <!-- per disabilitare il fast up-to-date e forzare un rebuild completo -->
+    <DisableFastUpToDateCheck>true</DisableFastUpToDateCheck>
+    <!-- abilita l’emissione dei file generati su disco -->
+    <EmitCompilerGeneratedFiles>true</EmitCompilerGeneratedFiles>
+    <CompilerGeneratedFilesOutputPath>obj\Gen</CompilerGeneratedFilesOutputPath>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <QtSdkPath>$(QT_SDK_PATH)</QtSdkPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="My.JsonSchema.Generator" Version="1.0.3" OutputItemType="Analyzer" ReferenceOutputAssembly="false">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="NeoNix-QtPy-Sdk-Serialization" Version="1.1.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <AdditionalFiles Include="$(QtSdkPath)\*.json" />
+  </ItemGroup>
+
+  <Target Name="ShowQtSdkPath" AfterTargets="Build">
+    <Message Text="QT_SDK_PATH = '$(QtSdkPath)'" Importance="High" />
+  </Target>
+
+  <UsingTask
+    TaskName="Serialize"
+    TaskFactory="RoslynCodeTaskFactory"
+    AssemblyFile="$(MSBuildToolsPath)\Microsoft.Build.Tasks.Core.dll">
+    <ParameterGroup>
+      <InputPath ParameterType="System.String" Required="true" />
+    </ParameterGroup>
+    <Task>
+      <Using Namespace="NeoNix-QtPy-Sdk-Serialization" />
+      <Code Type="Class" Language="cs">
+        <![CDATA[
+      public class InvokeMyPackageFunction : Microsoft.Build.Utilities.Task
+      {
+          public string InputPath { get; set; }
+
+          public override bool Execute()
+          {
+              NeoNix_QtPy_Sdk_Serialization.MessageHub.ExportSchemas(InputPath);
+              return true;
+          }
+      }
+    ]]>
+      </Code>
+    </Task>
+  </UsingTask>
+
+  <Target Name="exeSerialization" AfterTargets="Build">
+    <Serialize InputPath="$(QtSdkPath)/models" />
+  </Target>
+
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <OutputPath>A:\Quantower2\Quantower\TradingPlatform\v1.142.12\..\..\Settings\Scripts\Indicators\IndicatorExample</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <OutputPath>A:\Quantower2\Quantower\TradingPlatform\v1.142.12\..\..\Settings\Scripts\Indicators\IndicatorExample</OutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="TradingPlatform.BusinessLayer">
+      <HintPath>A:\Quantower2\Quantower\TradingPlatform\v1.142.12\bin\TradingPlatform.BusinessLayer.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+</Project>
