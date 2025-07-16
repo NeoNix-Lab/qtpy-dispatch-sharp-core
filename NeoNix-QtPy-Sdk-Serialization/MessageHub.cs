@@ -83,21 +83,4 @@ namespace NeoNix_QtPy_Sdk_Serialization
         public static void ExportSchemas(string folder)
                => SchemaManager.ExportAll(folder, Assembly.GetExecutingAssembly());
     }
-
-
-
-    public class QtPyTask : Microsoft.Build.Utilities.Task
-    {
-        [Microsoft.Build.Framework.Required]
-        public string Folder { get; set; }
-
-        public override bool Execute()
-        {
-            // qui chiami la tua funzione importata
-            MessageHub.ExportSchemas(Folder);
-            Log.LogMessage(MessageImportance.High, $"Eseguito DoWork su {Folder}");
-            return true;
-        }
-    }
-
 }

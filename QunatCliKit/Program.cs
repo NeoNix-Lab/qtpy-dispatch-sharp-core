@@ -7,8 +7,10 @@ using System.CommandLine;
 var root = CommandConfigurator.ConfigureRootCommand();
 
 var wizardCommand = MainMenu.Create();
+var serializationCommand = Serialize.Create();
 
 root.AddCommand(wizardCommand);
+root.AddCommand(serializationCommand);
 
 // create parser
 var parser = CommandConfigurator.ConfigureParser(root);
