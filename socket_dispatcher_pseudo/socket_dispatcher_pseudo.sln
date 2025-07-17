@@ -27,6 +27,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QunatCliKit", "..\QunatCliK
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IndicatorExample", "..\IndicatorExample\IndicatorExample.csproj", "{52DEDD99-102E-FDAF-FD94-AACEE36AE33D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NeoNix-QtPy-Models", "..\NeoNix-QtPy-Models\NeoNix-QtPy-Models.csproj", "{501089A9-0517-487E-A092-E270E21CF470}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +65,10 @@ Global
 		{52DEDD99-102E-FDAF-FD94-AACEE36AE33D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{52DEDD99-102E-FDAF-FD94-AACEE36AE33D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{52DEDD99-102E-FDAF-FD94-AACEE36AE33D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{501089A9-0517-487E-A092-E270E21CF470}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{501089A9-0517-487E-A092-E270E21CF470}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{501089A9-0517-487E-A092-E270E21CF470}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{501089A9-0517-487E-A092-E270E21CF470}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

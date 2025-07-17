@@ -16,7 +16,13 @@ root.AddCommand(serializationCommand);
 var parser = CommandConfigurator.ConfigureParser(root);
 var result = parser.Parse(args);
 
-string? initalInput = "wizard";
+if (args.Length > 0)
+{
+    await root.InvokeAsync(args);
+}
+
+
+string? initalInput = null /*= "wizard"*/;
 
 
 while (true)

@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using NeoNix_QtPy_Models;
+using Newtonsoft.Json;
 
 namespace NeoNix_QtPy_Sdk_Serialization.Interfaces
 {

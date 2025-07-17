@@ -1,24 +1,33 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <Version>1.0.0</Version>
-    <Description>Path manager per QtPy sdk</Description>
-    <OutputType>Exe</OutputType>
-    <TargetFramework>net8.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-    <PublishAot>true</PublishAot>
-    <InvariantGlobalization>true</InvariantGlobalization>
-    <PackAsTool>true</PackAsTool>
-    <ToolCommandName>qt-py-sdk-cli</ToolCommandName>
-    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
-    <Authors>Neo-Nix</Authors>
+	<Version>1.0.2</Version>
+	<Description>Path manager per QtPy sdk</Description>
+	<OutputType>Exe</OutputType>
+	<TargetFramework>net8.0</TargetFramework>
+	<ImplicitUsings>enable</ImplicitUsings>
+	<Nullable>enable</Nullable>
+	<PublishAot>true</PublishAot>
+	<InvariantGlobalization>true</InvariantGlobalization>
+	<PackAsTool>true</PackAsTool>
+	<ToolCommandName>qunatclikit</ToolCommandName>
+	<GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+	<Authors>Neo-Nix</Authors>
+	<!-- Disabilita la compilazione Native AOT -->
+	<PublishAot>false</PublishAot>
+	<!-- Evita che dotnet tenti comunque il self‑contained -->
+	<SelfContained>false</SelfContained>
+	<Description>Models per QtPy sdk</Description>
+	<PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+	<PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Spectre.Console" Version="0.50.0" />
-    <PackageReference Include="System.CommandLine" Version="2.0.0-beta4.22272.1" />
-    <PackageReference Include="NeoNix-QtPy-Sdk-Serialization" Version="1.1.1" />
+	<PackageReference Include="NeoNix-QtPy-Models" Version="1.0.0" />
+	<PackageReference Include="Spectre.Console" Version="0.50.0" />
+	<PackageReference Include="System.CommandLine" Version="2.0.0-beta4.22272.1" />
+	<None Include="LICENSE.txt" Pack="true" PackagePath=""/>
+	<None Include="README.md" Pack="true" PackagePath=""/>
   </ItemGroup>
 
 </Project>

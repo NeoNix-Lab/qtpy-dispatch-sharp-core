@@ -1,5 +1,4 @@
-﻿using NeoNix_QtPy_Sdk_Serialization;
-using NeoNix_QtPy_Sdk_Serialization.Services;
+﻿using NeoNix_QtPy_Models;
 using QunatCliKit.Helpers;
 using Spectre.Console;
 using System.CommandLine;
@@ -12,49 +11,19 @@ namespace QunatCliKit.Commands
 
         public static Command Create()
         {
+            var assembliesOption = new Option<string>(
+                "--assemblies",
+                description: "Directory containing the DLLs to load")
+            {
+                IsRequired = true
+            };
+
             var cmd = new Command("serialize", "Serialize al Imessage Files") {
-                new Option<string>(
-                    "--assemblies",
-                    description: "Cartella contenente le DLL da caricare"){IsRequired = true}
+                assembliesOption
 
             };
 
-            cmd.SetHandler((string assemblies) =>
-            {
-                var env_var = Environment.GetEnvironmentVariable("QT_SDK_PATH", EnvironmentVariableTarget.User);
-                bool isValidPath = PathService.ValidatePath(env_var);
-
-                if (!isValidPath)
-                {
-                    AnsiConsole.MarkupLine($"[red]Your path. {env_var}[/]");
-                    AnsiConsole.MarkupLine("[red]Invalid path. Please set a valid Path.[/]");
-                    var input = ConsolePrompt.Ask($"Sdk Wizard > press any to continue ");
-                }
-
-                if (isValidPath)
-                {
-                    AnsiConsole.MarkupLine($"[green]Your path. {env_var}[/]");
-                    AnsiConsole.MarkupLine("[gren]Serialization start[/]");
-
-                    try
-                    {
-                        SchemaManager.ExportAll(env_var, LoadAssembliesFrom(assemblies));
-                        MessageHub.ExportSchemas(env_var);
-                        AnsiConsole.MarkupLine("[green]Serialization done.[/]");
-
-                    }
-                    catch (Exception ex)
-                    {
-                        AnsiConsole.MarkupLine($"[red]Error during serialization: {ex.Message}[/]");
-                        throw;
-                    }
-
-
-                    string end = ConsolePrompt.Ask($"Sdk Wizard > Sdk Ready .... press any to continue ... q to quit ");
-                }
-                
-                
-            },cmd.Options[0]);
+            cmd.SetHandler<string>(ExecuteSerialization, assembliesOption);
 
             return cmd;
         }
@@ -76,5 +45,37 @@ namespace QunatCliKit.Commands
             }
             return loaded.ToArray();
         }
+
+        private static Task ExecuteSerialization(string assemblies)
+        {
+            var env_var = Environment.GetEnvironmentVariable("QT_SDK_PATH", EnvironmentVariableTarget.User);
+            bool isValidPath = PathService.ValidatePath(env_var);
+
+            if (!isValidPath)
+            {
+                AnsiConsole.MarkupLine($"[red]Your path. >>> {env_var} <<<[/]");
+                AnsiConsole.MarkupLine("[red]Invalid path. Please set a valid Path.[/]");
+                var input = ConsolePrompt.Ask($"Sdk Wizard > press any to continue  then Run wizard");
+            }
+            if (isValidPath)
+            {
+                AnsiConsole.MarkupLine($"[green]Your path. {env_var}[/]");
+                AnsiConsole.MarkupLine("[gren]Serialization start[/]");
+                try
+                {
+                    SchemaManager.ExportAll(env_var, LoadAssembliesFrom(assemblies));
+                    AnsiConsole.MarkupLine("[green]Serialization done.[/]");
+                }
+                catch (Exception ex)
+                {
+                    AnsiConsole.MarkupLine($"[red]Error during serialization: {ex.Message}[/]");
+                    throw;
+                }
+            }
+
+            return Task.CompletedTask;
+        }
+
+
     }
 }
