@@ -2,36 +2,36 @@
 
   <!-- … le tue PropertyGroup abituali … -->
   <PropertyGroup>
-    <DotNetToolsDir>$(USERPROFILE)\.dotnet\tools</DotNetToolsDir>
-    <QtPySdkCliExe>$(DotNetToolsDir)\qunatclikit.exe</QtPySdkCliExe>
+	<DotNetToolsDir>$(USERPROFILE)\.dotnet\tools</DotNetToolsDir>
+	<QtPySdkCliExe>$(DotNetToolsDir)\qunatclikit.exe</QtPySdkCliExe>
   </PropertyGroup>
 
 
   <!-- 1) Prima della build: installa il tool se non è già global -->
   <Target Name="EnsureQtPySdkToolInstalled"
-          BeforeTargets="Build">
-    <!-- verifica exit code: 0 = trovato, !=0 = non trovato -->
-    <Exec Condition="Exists('$(QtPySdkCliExe)')"
-         Command="dotnet tool update --global  qunatclikit" />
+		  BeforeTargets="Build">
+	<!-- verifica exit code: 0 = trovato, !=0 = non trovato -->
+	<Exec Condition="Exists('$(QtPySdkCliExe)')"
+		 Command="dotnet tool update --global  qunatclikit" />
 
-    <!-- se non esiste, installa -->
-    <Exec Condition="!Exists('$(QtPySdkCliExe)')"
-          Command="dotnet tool install --global  qunatclikit" />
+	<!-- se non esiste, installa -->
+	<Exec Condition="!Exists('$(QtPySdkCliExe)')"
+		  Command="dotnet tool install --global  qunatclikit" />
 
-    <Message Text="✔ tool updated at '$(QtPySdkCliExe)'" Importance="High" />
-    <Message Text="✔ will respond at qunatclikit" Importance="High" />
+	<Message Text="✔ tool updated at '$(QtPySdkCliExe)'" Importance="High" />
+	<Message Text="✔ will respond at qunatclikit" Importance="High" />
   </Target>
 
   <!-- 2) Dopo la build: esegui override SOLO se manca QT_SDK_PATH -->
   <Target Name="InvokeQtPySdkOverride"
-          BeforeTargets="Build"
-          Condition="'$(QT_SDK_PATH)' == ''">
-    <Exec
-    Command="cmd.exe /c start cmd.exe /k &quot;qunatclikit wizard&quot;"
-    UseCommandProcessor="false"
-    IgnoreExitCode="true"
-    />
-    <Message Text="✔ run qunatclikit in oder to override your path reference" Importance="High" />
+		  BeforeTargets="Build"
+		  Condition="'$(QT_SDK_PATH)' == ''">
+	<Exec
+	Command="cmd.exe /c start cmd.exe /k &quot;qunatclikit wizard&quot;"
+	UseCommandProcessor="false"
+	IgnoreExitCode="true"
+	/>
+	<Message Text="✔ run qunatclikit in oder to override your path reference" Importance="High" />
 
   </Target>
 	

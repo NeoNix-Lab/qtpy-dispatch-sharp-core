@@ -3,13 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.10.35122.118
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "socket_dispatcher_pseudo", "socket_dispatcher_pseudo.csproj", "{58423B77-4E21-435E-A238-B0BE3E7870A1}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SocketDispatcherPseudo.Tests", "..\SocketDispatcherPseudo.Tests\SocketDispatcherPseudo.Tests.csproj", "{22582769-6923-46F3-9E38-67F51E98BA93}"
 EndProject
 Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "socket_dispatcher_python", "..\socket_dispatcher_python\socket_dispatcher_python.pyproj", "{AC4D94FA-F3A1-4B1E-8331-4CAFA4183B6B}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestCodeGenerator", "..\TestCodeGenerator\TestCodeGenerator.csproj", "{7180B73E-032C-4098-8C12-6479FCB60F17}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Generator", "..\Generator\Generator.csproj", "{4393741F-A45C-486D-8D72-D5BB98C4D2E9}"
 EndProject
@@ -29,26 +25,20 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IndicatorExample", "..\Indi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NeoNix-QtPy-Models", "..\NeoNix-QtPy-Models\NeoNix-QtPy-Models.csproj", "{501089A9-0517-487E-A092-E270E21CF470}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharedModels", "..\SharedModels\SharedModels.csproj", "{65C538FD-0E6B-41E9-8313-3B19ED409B99}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{58423B77-4E21-435E-A238-B0BE3E7870A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{58423B77-4E21-435E-A238-B0BE3E7870A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{58423B77-4E21-435E-A238-B0BE3E7870A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{58423B77-4E21-435E-A238-B0BE3E7870A1}.Release|Any CPU.Build.0 = Release|Any CPU
 		{22582769-6923-46F3-9E38-67F51E98BA93}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{22582769-6923-46F3-9E38-67F51E98BA93}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{22582769-6923-46F3-9E38-67F51E98BA93}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{22582769-6923-46F3-9E38-67F51E98BA93}.Release|Any CPU.Build.0 = Release|Any CPU
 		{AC4D94FA-F3A1-4B1E-8331-4CAFA4183B6B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{AC4D94FA-F3A1-4B1E-8331-4CAFA4183B6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7180B73E-032C-4098-8C12-6479FCB60F17}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7180B73E-032C-4098-8C12-6479FCB60F17}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7180B73E-032C-4098-8C12-6479FCB60F17}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7180B73E-032C-4098-8C12-6479FCB60F17}.Release|Any CPU.Build.0 = Release|Any CPU
 		{4393741F-A45C-486D-8D72-D5BB98C4D2E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{4393741F-A45C-486D-8D72-D5BB98C4D2E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4393741F-A45C-486D-8D72-D5BB98C4D2E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -69,6 +59,10 @@ Global
 		{501089A9-0517-487E-A092-E270E21CF470}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{501089A9-0517-487E-A092-E270E21CF470}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{501089A9-0517-487E-A092-E270E21CF470}.Release|Any CPU.Build.0 = Release|Any CPU
+		{65C538FD-0E6B-41E9-8313-3B19ED409B99}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65C538FD-0E6B-41E9-8313-3B19ED409B99}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65C538FD-0E6B-41E9-8313-3B19ED409B99}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65C538FD-0E6B-41E9-8313-3B19ED409B99}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

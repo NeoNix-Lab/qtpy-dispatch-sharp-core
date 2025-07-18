@@ -1,5 +1,6 @@
 ﻿using NeoNix_QtPy_Models;
 using QunatCliKit.Helpers;
+using QunatCliKit.Services;
 using Spectre.Console;
 using System.CommandLine;
 using System.Reflection;
@@ -39,7 +40,7 @@ namespace QunatCliKit.Commands
             {
                 if (!existing.Contains(file))
                 {
-                    var asm = AppDomain.CurrentDomain.Load(AssemblyName.GetAssemblyName(file));
+                    var asm = Assembly.LoadFrom(file);
                     loaded.Add(asm);
                 }
             }
@@ -60,7 +61,7 @@ namespace QunatCliKit.Commands
             if (isValidPath)
             {
                 AnsiConsole.MarkupLine($"[green]Your path. {env_var}[/]");
-                AnsiConsole.MarkupLine("[gren]Serialization start[/]");
+                AnsiConsole.MarkupLine("[green]Serialization start[/]");
                 try
                 {
                     SchemaManager.ExportAll(env_var, LoadAssembliesFrom(assemblies));

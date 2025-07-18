@@ -1,8 +1,9 @@
-﻿using Newtonsoft.Json.Schema;
+﻿using NeoNix_QtPy_Models;
+using Newtonsoft.Json.Schema;
 using Newtonsoft.Json.Schema.Generation;
 using System.Reflection;
 
-namespace NeoNix_QtPy_Models
+namespace QunatCliKit.Services
 {
     public static class SchemaManager
     {
@@ -48,6 +49,7 @@ namespace NeoNix_QtPy_Models
             {
                 // Generate the schema
                 JSchema schema = generator.Generate(type);
+                schema.Title = type.Name; // Set the title to the type name
 
                 // Build output path: e.g. "./schemas/UserMessage.json"
                 string fileName = Path.Combine(outputDirectory, $"{type.Name}.json");

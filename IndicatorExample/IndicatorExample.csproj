@@ -13,31 +13,27 @@
 	<DisableFastUpToDateCheck>true</DisableFastUpToDateCheck>
 	<!-- abilita l’emissione dei file generati su disco -->
 	<EmitCompilerGeneratedFiles>true</EmitCompilerGeneratedFiles>
-	<CompilerGeneratedFilesOutputPath>obj\Gen</CompilerGeneratedFilesOutputPath>
+	<CompilerGeneratedFilesOutputPath>Gen</CompilerGeneratedFilesOutputPath>
   </PropertyGroup>
   <PropertyGroup>
 	<QtSdkPath>$(QT_SDK_PATH)</QtSdkPath>
   </PropertyGroup>
+
+  <PropertyGroup>
+	<DotnetRuntimePath>$(ProgramFiles)\dotnet\shared\Microsoft.NETCore.App\8.0.0</DotnetRuntimePath>
+  </PropertyGroup>
+  
+ 
   <ItemGroup>
 	<PackageReference Include="My.JsonSchema.Generator" Version="1.0.3">
 	  <PrivateAssets>all</PrivateAssets>
 	  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 	</PackageReference>
-	<PackageReference Include="NeoNix-QtPy-Sdk-Serialization" Version="1.1.1" />
-	<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+	<PackageReference Include="NeoNix-QtPy-Sdk-Serialization" Version="1.1.2" />
 	<AdditionalFiles Include="$(QtSdkPath)\*.json" />
   </ItemGroup>
-  <Target Name="ShowQtSdkPath" AfterTargets="Build">
-	<Message Text="QT_SDK_PATH = '$(QtSdkPath)'" Importance="High" />
-  </Target>
 
-  <Target Name="UpdateJsonModels" AfterTargets="Build">
-	 <Exec
-	 Command="qunatclikit serialize --assemblies $(OutputPath)"
-	 UseCommandProcessor="false"
-	 IgnoreExitCode="true"/>
-	 <Message Text="✔ json folder updated" Importance="High" />
-  </Target>
+ 
  
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
 	<OutputPath>C:\Users\tagli\Desktop\Quantower\TradingPlatform\v1.142.16\..\..\Settings\Scripts\Indicators\IndicatorExample</OutputPath>
@@ -45,10 +41,29 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
 	<OutputPath>C:\Users\tagli\Desktop\Quantower\TradingPlatform\v1.142.16\..\..\Settings\Scripts\Indicators\IndicatorExample</OutputPath>
   </PropertyGroup>
+	<ItemGroup>
+		<Reference Include="TradingPlatform.BusinessLayer">
+			<HintPath>C:\Users\tagli\Desktop\Quantower\TradingPlatform\v1.142.16\bin\TradingPlatform.BusinessLayer.dll</HintPath>
+			<Private>True</Private>
+		</Reference>
+	</ItemGroup>
+	
   <ItemGroup>
-	<Reference Include="TradingPlatform.BusinessLayer">
-	  <HintPath>C:\Users\tagli\Desktop\Quantower\TradingPlatform\v1.142.16\bin\TradingPlatform.BusinessLayer.dll</HintPath>
-	  <Private>False</Private>
-	</Reference>
+	  <ProjectReference Include="..\SharedModels\SharedModels.csproj">
+		  <Name>ModelsLib</Name>
+	  </ProjectReference>
   </ItemGroup>
+
+  <Target Name="UpdateJsonModels" AfterTargets="Build">
+	<ItemGroup>
+	 <ModelDll Include="@(ProjectReference->'%(FullPath)')"
+			Condition="Exists('%(RootDir)%(Directory)bin\$(Configuration)\net8.0\SharedModels.dll')" />
+	</ItemGroup>
+	<Exec Command="qunatclikit serialize --assemblies  &quot;%(ModelDll.Identity)bin\$(Configuration)\net8.0\SharedModels.dll&quot;" UseCommandProcessor="false" IgnoreExitCode="true" />
+	<Message Text="✔ json folder updated" Importance="High" />
+  </Target>
+
 </Project>
+
+
+

@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-	<Version>1.0.2</Version>
+	<Version>1.0.3</Version>
 	<Description>Path manager per QtPy sdk</Description>
 	<OutputType>Exe</OutputType>
 	<TargetFramework>net8.0</TargetFramework>
@@ -23,11 +23,14 @@
   </PropertyGroup>
 
   <ItemGroup>
-	<PackageReference Include="NeoNix-QtPy-Models" Version="1.0.0" />
 	<PackageReference Include="Spectre.Console" Version="0.50.0" />
 	<PackageReference Include="System.CommandLine" Version="2.0.0-beta4.22272.1" />
-	<None Include="LICENSE.txt" Pack="true" PackagePath=""/>
-	<None Include="README.md" Pack="true" PackagePath=""/>
+	<None Include="LICENSE.txt" Pack="true" PackagePath="" />
+	<None Include="README.md" Pack="true" PackagePath="" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\NeoNix-QtPy-Models\NeoNix-QtPy-Models.csproj" />
   </ItemGroup>
 
 </Project>

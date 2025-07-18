@@ -1,4 +1,4 @@
-﻿````markdown
+﻿markdown
 # QunatCliKit
 
 A cross‑platform .NET 8 command‑line tool to manage the `QT_SDK_PATH` environment variable via an interactive wizard and to generate JSON Schemas for your `IMessage` types.

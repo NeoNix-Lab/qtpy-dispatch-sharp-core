@@ -17,7 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\socket_dispatcher_pseudo\socket_dispatcher_pseudo.csproj" />
+    <ProjectReference Include="..\QunatCliKit\QunatCliKit.csproj" />
   </ItemGroup>
 
   <ItemGroup>
