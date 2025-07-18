@@ -18,6 +18,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\QunatCliKit\QunatCliKit.csproj" />
+    <ProjectReference Include="..\SharedModels\SharedModels.csproj" />
   </ItemGroup>
 
   <ItemGroup>
