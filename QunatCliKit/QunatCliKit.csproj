@@ -20,6 +20,8 @@
 	<Description>Models per QtPy sdk</Description>
 	<PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
 	<PackageReadmeFile>README.md</PackageReadmeFile>
+	<RepositoryUrl>https://github.com/NeoNix-Lab/qtpy-dispatch-sharp-core.git</RepositoryUrl>
+	<RepositoryType>git</RepositoryType>
   </PropertyGroup>
 
   <ItemGroup>

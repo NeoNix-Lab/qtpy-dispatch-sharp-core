@@ -1,43 +1,45 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <PackageId>My.JsonSchema.Generator</PackageId>
-    <Version>1.0.0</Version>
-    <Authors>IlTuoNome</Authors>
-    <Description>Roslyn source generator per JSON‐Schema</Description>
-    <IncludeBuildOutput>false</IncludeBuildOutput>
-    <IncludeSymbols>true</IncludeSymbols>
-    <!-- questo farà sì che al build tutte le DLL delle dipendenze NuGet finiscano in bin\Debug\netstandard2.0 -->
-    <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
-    <EnforceExtendedAnalyzerRules>true</EnforceExtendedAnalyzerRules>
+	<TargetFramework>netstandard2.0</TargetFramework>
+	<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+	<PackageId>My.JsonSchema.Generator</PackageId>
+	<Version>1.0.0</Version>
+	<Authors>IlTuoNome</Authors>
+	<Description>Roslyn source generator per JSON‐Schema</Description>
+	<IncludeBuildOutput>false</IncludeBuildOutput>
+	<IncludeSymbols>true</IncludeSymbols>
+	<!-- questo farà sì che al build tutte le DLL delle dipendenze NuGet finiscano in bin\Debug\netstandard2.0 -->
+	<CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+	<EnforceExtendedAnalyzerRules>true</EnforceExtendedAnalyzerRules>
+	<RepositoryUrl>https://github.com/NeoNix-Lab/qtpy-dispatch-sharp-core.git</RepositoryUrl>
+	<RepositoryType>git</RepositoryType>
   </PropertyGroup>
 
   <ItemGroup>  
-    <!-- Roslyn core: contiene IIncrementalGenerator -->
-    <PackageReference Include="Microsoft.CodeAnalysis" Version="4.14.0" PrivateAssets="all" />
-    <PackageReference Include="Microsoft.CodeAnalysis.Compilers" Version="4.14.0" />
-    <!-- driver C#: se ti serve esplicito per C# -->
-    <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.14.0" PrivateAssets="all" />
-    <!--<PackageReference Include="Microsoft.Net.Compilers.Toolset" Version="4.14.0">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>-->
-    <!-- quello che già avevi per JSON-Schema -->
-    <PackageReference Include="NJsonSchema" Version="11.3.2" PrivateAssets="all" />
-    <PackageReference Include="NJsonSchema.Annotations" Version="11.3.2" PrivateAssets="all" />
-    <PackageReference Include="NJsonSchema.CodeGeneration" Version="11.3.2" PrivateAssets="all" />
-    <PackageReference Include="NJsonSchema.CodeGeneration.CSharp" Version="11.3.2" PrivateAssets="all" />
-    <PackageReference Include="System.Collections.Immutable" Version="10.0.0-preview.5.25277.114" PrivateAssets="all" />
+	<!-- Roslyn core: contiene IIncrementalGenerator -->
+	<PackageReference Include="Microsoft.CodeAnalysis" Version="4.14.0" PrivateAssets="all" />
+	<PackageReference Include="Microsoft.CodeAnalysis.Compilers" Version="4.14.0" />
+	<!-- driver C#: se ti serve esplicito per C# -->
+	<PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.14.0" PrivateAssets="all" />
+	<!--<PackageReference Include="Microsoft.Net.Compilers.Toolset" Version="4.14.0">
+	  <PrivateAssets>all</PrivateAssets>
+	  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+	</PackageReference>-->
+	<!-- quello che già avevi per JSON-Schema -->
+	<PackageReference Include="NJsonSchema" Version="11.3.2" PrivateAssets="all" />
+	<PackageReference Include="NJsonSchema.Annotations" Version="11.3.2" PrivateAssets="all" />
+	<PackageReference Include="NJsonSchema.CodeGeneration" Version="11.3.2" PrivateAssets="all" />
+	<PackageReference Include="NJsonSchema.CodeGeneration.CSharp" Version="11.3.2" PrivateAssets="all" />
+	<PackageReference Include="System.Collections.Immutable" Version="10.0.0-preview.5.25277.114" PrivateAssets="all" />
   </ItemGroup>
 
   <!-- questo target copia le DLL di dipendenza in analyzers/dotnet/cs -->
   <Target Name="CopyAnalyzerDependencies" AfterTargets="Build">
-    <ItemGroup>
-      <Analyzer Include="$(OutputPath)\Generator.dll" Pack="true" PackagePath="analyzers/dotnet/cs" />
-      <Analyzer Include="$(OutputPath)\NJsonSchema*.dll" Pack="true" PackagePath="analyzers/dotnet/cs" />
-      <Analyzer Include="$(OutputPath)\System.Collections.Immutable.dll" Pack="true" PackagePath="analyzers/dotnet/cs" />
-      <Analyzer Include="$(OutputPath)\Microsoft.CodeAnalysis*.dll" Pack="true" PackagePath="analyzers/dotnet/cs" />
-    </ItemGroup>
+	<ItemGroup>
+	  <Analyzer Include="$(OutputPath)\Generator.dll" Pack="true" PackagePath="analyzers/dotnet/cs" />
+	  <Analyzer Include="$(OutputPath)\NJsonSchema*.dll" Pack="true" PackagePath="analyzers/dotnet/cs" />
+	  <Analyzer Include="$(OutputPath)\System.Collections.Immutable.dll" Pack="true" PackagePath="analyzers/dotnet/cs" />
+	  <Analyzer Include="$(OutputPath)\Microsoft.CodeAnalysis*.dll" Pack="true" PackagePath="analyzers/dotnet/cs" />
+	</ItemGroup>
   </Target>
 </Project>
