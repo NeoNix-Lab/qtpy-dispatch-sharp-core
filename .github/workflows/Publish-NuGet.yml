@@ -1,0 +1,36 @@
+name: Publish All NuGet Packages
+
+on:
+  push:
+    branches: [ push ]
+  workflow_dispatch:
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.x'
+          cache: true
+
+      - name: Find all csproj
+        id: csprojs
+        run: |
+          echo "::set-output name=files::$(find src -name '*.csproj' | tr '\n' ' ')"
+
+      - name: Pack & Push each project
+        env:
+          NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
+        run: |
+          for proj in ${{ steps.csprojs.outputs.files }}; do
+            echo "🔧 Packing $proj"
+            dotnet pack "$proj" -c Release -o ./nupkgs
+            echo "🚀 Pushing package from $proj"
+            dotnet nuget push "./nupkgs/*.nupkg" \
+              --source https://api.nuget.org/v3/index.json \
+              --api-key $NUGET_API_KEY \
+              --skip-duplicate
+          done
