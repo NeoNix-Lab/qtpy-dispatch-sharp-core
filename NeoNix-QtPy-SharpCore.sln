@@ -1,0 +1,52 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35122.118
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Generator", "Generator\Generator.csproj", "{5F162047-71C4-A730-10F2-8456E4D1F966}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NeoNix-QtPy-Models", "NeoNix-QtPy-Models\NeoNix-QtPy-Models.csproj", "{B4EC62D4-61BA-E00D-ACFB-FB2265C3DBCB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QunatCliKit", "QunatCliKit\QunatCliKit.csproj", "{F28C5B4E-2A65-1937-C03C-7AFDAA56D9C5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SocketDispatcherPseudo.Tests", "SocketDispatcherPseudo.Tests\SocketDispatcherPseudo.Tests.csproj", "{9EEF8F6F-9C15-0F9D-6B69-FC3BAC0CBBCC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Elementi di soluzione", "Elementi di soluzione", "{9DF70304-0A22-CE1E-AA12-D5904EE55694}"
+	ProjectSection(SolutionItems) = preProject
+		.gitattributes = .gitattributes
+		.gitignore = .gitignore
+		LICENSE.txt = LICENSE.txt
+		README.md = README.md
+		SolutionStructure.md = SolutionStructure.md
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5F162047-71C4-A730-10F2-8456E4D1F966}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F162047-71C4-A730-10F2-8456E4D1F966}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F162047-71C4-A730-10F2-8456E4D1F966}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F162047-71C4-A730-10F2-8456E4D1F966}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B4EC62D4-61BA-E00D-ACFB-FB2265C3DBCB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B4EC62D4-61BA-E00D-ACFB-FB2265C3DBCB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B4EC62D4-61BA-E00D-ACFB-FB2265C3DBCB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B4EC62D4-61BA-E00D-ACFB-FB2265C3DBCB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F28C5B4E-2A65-1937-C03C-7AFDAA56D9C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F28C5B4E-2A65-1937-C03C-7AFDAA56D9C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F28C5B4E-2A65-1937-C03C-7AFDAA56D9C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F28C5B4E-2A65-1937-C03C-7AFDAA56D9C5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9EEF8F6F-9C15-0F9D-6B69-FC3BAC0CBBCC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9EEF8F6F-9C15-0F9D-6B69-FC3BAC0CBBCC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9EEF8F6F-9C15-0F9D-6B69-FC3BAC0CBBCC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9EEF8F6F-9C15-0F9D-6B69-FC3BAC0CBBCC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CC489243-BB8F-4C79-AD04-AF9C891E9415}
+	EndGlobalSection
+EndGlobal
