@@ -116,4 +116,4 @@ This project is released under the MIT License. See `LICENSE` for details.
 [![NuGet version (NeoNix-QtPy-Models)](https://img.shields.io/nuget/v/NomePacchetto.svg?style=flat-square)](https://www.nuget.org/packages/NeoNix-QtPy-Models/)
 [![NuGet version (My.JsonSchema.Generator)](https://img.shields.io/nuget/v/NomePacchetto.svg?style=flat-square)](https://www.nuget.org/packages/My.JsonSchema.Generator/)
 [![NuGet version (NeoNix-QtPy-Sdk-Serialization)](https://img.shields.io/nuget/v/NomePacchetto.svg?style=flat-square)](https://www.nuget.org/packages/NeoNix-QtPy-Sdk-Serialization/)
-[![NuGet version (qunatclikit)](https://img.shields.io/nuget/v/NomePacchetto.svg?style=flat-square)](https://www.nuget.org/packages/QunatCliKit/)
+[![NuGet version (QunatCliKit)](https://img.shields.io/nuget/v/NomePacchetto.svg?style=flat-square)](https://www.nuget.org/packages/QunatCliKit/)
