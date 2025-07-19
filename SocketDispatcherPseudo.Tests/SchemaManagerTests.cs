@@ -9,15 +9,17 @@ namespace SocketDispatcherPseudo.Tests
         [Fact]
         public void ExportAll_GeneratesSchemas_FromHardcodedDll()
         {
-            // 🔧 Hardcoded path to compiled model DLL
-            var dllPath = @"C:\Users\tagli\source\repos\NeoNix-Lab\socket_dispatcher_pseudo\SharedModels\bin\Debug\net8.0\SharedModels.dll";
+            // Resolve the SharedModels assembly relative to the test directory
+            var dllPath = Path.GetFullPath(
+                Path.Combine(AppContext.BaseDirectory,
+                             "../../../../SharedModels/bin/Debug/net8.0/SharedModels.dll"));
+
             var outputPath = Path.Combine(Path.GetTempPath(), "schemas_test");
-            outputPath = @"C:\Users\tagli\Desktop\SharedSchemas";
 
             if (Directory.Exists(outputPath))
                 Directory.Delete(outputPath, true);
 
-            // 🧪 Load the assembly
+            // 🧪 Load the assembly containing the test models
             var assembly = Assembly.LoadFrom(dllPath);
             List<string> Debugs = new List<string>();
 
