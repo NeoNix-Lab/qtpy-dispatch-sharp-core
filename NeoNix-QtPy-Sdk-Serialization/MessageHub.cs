@@ -78,7 +78,5 @@ namespace NeoNix_QtPy_Sdk_Serialization
             Reset();
             IsOperative = false;
         }
-        public static void ExportSchemas(string folder)
-               => SchemaManager.ExportAll(folder, Assembly.GetExecutingAssembly());
     }
 }

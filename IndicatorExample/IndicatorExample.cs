@@ -13,14 +13,14 @@ namespace IndicatorExample
 	/// </summary>
 	public class IndicatorExample : Indicator
 	{
-        /// <summary>
-        /// Indicator's constructor. Contains general information: name, description, LineSeries etc. 
-        /// </summary>
-        /// 
+		/// <summary>
+		/// Indicator's constructor. Contains general information: name, description, LineSeries etc. 
+		/// </summary>
+		/// 
 
-        public Generated.HdModel MyProperty { get; set; }
+		public Generated.HdModel MyProperty { get; set; }
 
-        public IndicatorExample()
+		public IndicatorExample()
 			: base()
 		{
 			// Defines indicator's name and description.

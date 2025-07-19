@@ -57,7 +57,7 @@
   <Target Name="UpdateJsonModels" AfterTargets="Build">
 	<ItemGroup>
 	 <ModelDll Include="@(ProjectReference->'%(FullPath)')"
-			Condition="Exists('%(RootDir)%(Directory)bin\$(Configuration)\net8.0\SharedModels.dll')" />
+			Condition="Exists('%(RootDir)\bin\$(Configuration)\net8.0\SharedModels.dll')" />
 	</ItemGroup>
 	<Exec Command="qunatclikit serialize --assemblies  &quot;%(ModelDll.Identity)bin\$(Configuration)\net8.0\SharedModels.dll&quot;" UseCommandProcessor="false" IgnoreExitCode="true" />
 	<Message Text="✔ json folder updated" Importance="High" />
