@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>ac4d94fa-f3a1-4b1e-8331-4cafa4183b6b</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>socket_dispatcher_python.py</StartupFile>
+  <StartupFile>__main__.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -21,7 +21,15 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="socket_dispatcher_python.py" />
+    <Compile Include="__init__.py" />
+    <Compile Include="__main__.py" />
+    <Compile Include="dynamic_message.py" />
+    <Compile Include="message_envelope.py" />
+    <Compile Include="message_dispatcher.py" />
+    <Compile Include="socket_client_service.py" />
+    <Compile Include="socket_manager.py" />
+    <Compile Include="stream_message.py" />
+    <Compile Include="trading_envelopes.py" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in
