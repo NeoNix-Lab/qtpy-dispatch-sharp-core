@@ -30,6 +30,7 @@
     <Compile Include="socket_manager.py" />
     <Compile Include="stream_message.py" />
     <Compile Include="trading_envelopes.py" />
+    <Compile Include="generate_models.py" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in
