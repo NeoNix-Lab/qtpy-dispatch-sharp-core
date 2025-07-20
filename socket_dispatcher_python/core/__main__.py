@@ -1,6 +1,6 @@
 from .message_dispatcher import MessageDispatcher
-from .trading_envelopes import TradingEnvelopes
-from .socket_manager import SocketManager
+from trading_envelopes import TradingEnvelopes
+from socket_manager import SocketManager
 
 
 if __name__ == "__main__":

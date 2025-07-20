@@ -1,6 +1,7 @@
 from typing import Dict
 
 from .message_envelope import MessageEnvelope
+from stream_message import StreamMessage
 
 
 class MessageDispatcher:
@@ -14,9 +15,8 @@ class MessageDispatcher:
             raise ValueError(f"Envelope for '{envelope.name}' already registered")
         self._envelopes[envelope.name] = envelope
 
-    def dispatch(self, json_str: str) -> None:
-        envelope = MessageEnvelope.from_json(json_str)
-        if envelope.name in self._envelopes:
+    def dispatch(self, json_str: StreamMessage) -> None:
+       if json_str.Command in self._envelopes:
             registered = self._envelopes[envelope.name]
             envelope.on_received = registered.on_received
             envelope.invoke()

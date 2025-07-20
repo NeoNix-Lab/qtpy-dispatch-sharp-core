@@ -1,4 +1,4 @@
-from .message_envelope import MessageEnvelope
+from core.message_envelope import MessageEnvelope
 
 
 class TradingEnvelopes:
