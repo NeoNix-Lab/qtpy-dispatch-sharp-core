@@ -366,3 +366,8 @@ FodyWeavers.xsd
 *.zip
 *.dll
 *.exe
+
+# Unecessary projects
+**/ConsoleTest/
+**/SocketDispatcherPseudo.Tests/
+**/socket_dispatcher_python/

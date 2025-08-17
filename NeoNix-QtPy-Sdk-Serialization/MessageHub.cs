@@ -31,9 +31,9 @@ namespace NeoNix_QtPy_Sdk_Serialization
             while (true)
             {
                 var incoming = await _socketManager.ReceiveAsync();
-                IMessage message = DispatchableBaseClass<IMessage>.FromJson(incoming);
+                //IMessage message = DispatchableBaseClass<IMessage>.FromJson(incoming);
 
-                _dispatcher.Dispatch(message.Title);
+                _dispatcher.Dispatch(incoming, "deprecated");
             }
         }
 

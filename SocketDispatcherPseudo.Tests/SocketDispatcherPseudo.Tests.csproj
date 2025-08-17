@@ -17,6 +17,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\NeoNix-QtPy-Models\NeoNix-QtPy-Models.csproj" />
+    <ProjectReference Include="..\NeoNix-QtPy-Sdk-Serialization\NeoNix-QtPy-Sdk-Serialization.csproj" />
     <ProjectReference Include="..\QunatCliKit\QunatCliKit.csproj" />
   </ItemGroup>
 

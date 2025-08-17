@@ -55,7 +55,7 @@ namespace NeoNix_QtPy_Sdk_Serialization.Interfaces
         }
 
         /// <inheritdoc/>
-        public static IMessage FromJson(string json)
+        public IMessage FromJson(string json)
         {
             var msg = JsonConvert.DeserializeObject<TMessage>(json)
                       ?? throw new JsonSerializationException(
@@ -76,10 +76,12 @@ namespace NeoNix_QtPy_Sdk_Serialization.Interfaces
         public string ToJson() => JsonConvert.SerializeObject(Message);
 
         /// <inheritdoc/>
-        public void Invoke()
+        public void Invoke(string obj)
         {
             try
             {
+                var Message = FromJson(obj);
+                UpdateMessage(Message);
                 // Execute the user-provided callback
                 Callback((TMessage)Message);
 
@@ -92,6 +94,5 @@ namespace NeoNix_QtPy_Sdk_Serialization.Interfaces
                     $"Error invoking dispatchable for '{Name}'", ex);
             }
         }
-
     }
 }

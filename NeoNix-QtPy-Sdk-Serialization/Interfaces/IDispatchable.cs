@@ -27,6 +27,6 @@ namespace NeoNix_QtPy_Sdk_Serialization.Interfaces
         /// <summary>
         /// Executes <see cref="Callback"/> with <see cref="Message"/>, then raises <see cref="OnReceived"/>.
         /// </summary>
-        void Invoke();
+        void Invoke(string obj);
     }
 }
